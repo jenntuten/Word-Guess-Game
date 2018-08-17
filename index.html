@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Hangman</title>
+  </head>
+  <body>
+      <style>
+
+      body {background: black;
+      font-family: 'Orbitron', sans-serif;
+      text-align: center;
+      color: white;}
+      div {
+        font-family: 'Orbitron', sans-serif;
+      }
+      .reset {
+          height: 50px;
+          width: 100px;
+          background: blue;
+          text-align: center;
+          line-height: 45px;
+          color: white;
+          border-radius: 4px;
+      }
+
+
+      </style>
+<img src="assets/images/nba-logo.png" height=93px width =41px alt="NBA logo"><br>
+      <h1>Hangman!</h1>
+      <h2>Press any letter to get started. You have 10 tries.</h2>
+      <h3>Note: Please turn your caps lock off.</h3>
+<div class="score">
+
+</div>
+<br><br>
+<div class="somethingElse">Letters Already Guessed: <div class="incorrect"></div></div><br>
+<div class="something">Guesses remaining: <div class="remaining"></div></div><br>
+<div class="correctLetters">Guesses:<br></div>
+<br><br>
+<button class="reset"  onClick="refreshPage()">Reset</button>
+<!--<div class="answer"></div> for testing only-->
+<script>
+let teams = ["heat", "magic", "lakers", "kings", "pacers", "nets", "rockets", "mavericks", "thunder", "bucks", "pelicans", "hawks", "hornets", "wizards"];
+let team = teams[Math.floor(Math.random() * teams.length)];
+//console.log("team", team);
+let choices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+let blanks = ""; //show letters
+let remainingLetters = 10; //each game will start with 10 guesses
+let wrongAnswers = []; //show letters
+let wins = 0;
+let losses = 0; 
+for (let i = 0; i < team.length; i++) {
+  blanks = blanks + "_ ";
+};
+
+document.addEventListener('keyup', function(event){
+
+        let userKey = event.key;
+        
+        //if user pressed a valid key, fill in the blank space; if invalid, display on the screen
+        //move if statements into event listeners
+        if ((team.includes(userKey) === false) && (choices.includes(userKey) === false)){
+            console.log("letters only");//tests whether user input was logged
+        }
+        if ((team.includes(userKey) === false) && (choices.includes(userKey) === true)){
+            remainingLetters--; 
+            console.log("wrong");//tests whether user input was logged
+            console.log(wrongAnswers.push(userKey));
+            console.log(remainingLetters);
+            console.log(wrongAnswers);
+            document.querySelector(".incorrect").innerText = wrongAnswers.join(", ");
+            document.querySelector(".remaining").innerText = remainingLetters;
+        }
+        if (team.includes(userKey) === true){
+            console.log("correct");//tests whether user input was logged
+            let str = blanks;
+            let swap = str.replace(blanks, userKey);//trying to replace the blanks, but it only shows the correct letter in the console log 
+            console.log(swap);
+            
+            //create variable to store index #; what is index # of correctly guessed letter
+            let indexOfCorrectLetter = team.indexOf(userKey);
+            console.log(indexOfCorrectLetter);
+            blanks = "";
+            for ( let j = 0; j < team.length; j++ ) {
+                if (team[j] === "_ ") {
+                    
+                }
+                if (j === indexOfCorrectLetter) {
+                    blanks = blanks + userKey;
+                    console.log(blanks);
+                    document.querySelector(".correctLetters").innerText = blanks;
+                   //will print blanks, then the actual value
+                }
+                else {
+                    blanks += "_ ";
+                    console.log(blanks);
+                    
+            }
+            //hold onto correct letters as the user guesses them
+            };
+        }
+        if (remainingLetters < 1) {
+            document.querySelector(".remaining").innerText = "0";//trying to display "0" before the alert pops up
+            alert("Oh no! The answer is " + team[0].toUpperCase() + team.substring(1) + ". Better luck next time!");
+        }
+        if (blanks === team) {
+            
+            alert("Awesome! The team is" + team);
+            display();
+        }
+})
+let scoreboard =
+  "Team: " + blanks +
+  "<br><br>Answer: " + team; 
+
+function refreshPage(){
+    window.location.reload();
+} 
+document.querySelector('.score').innerHTML = scoreboard;
+//match letters to blanks
+//add toLowerCase
+</script> 
+
+</body>
+</html>
+
+
+
+
+
