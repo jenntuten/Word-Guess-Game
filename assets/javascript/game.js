@@ -41,6 +41,7 @@ document.addEventListener('keyup', function(event){
             console.log(wrongAnswers.push(userKey));
             //console.log(remainingLetters);
             //console.log(wrongAnswers);
+            //it is possible for the player to guess the same incorrect letter multiple times. In this case, it does decrement the remaining guesses each time.
             document.querySelector(".incorrect").innerText = wrongAnswers.join(", ");
             document.querySelector(".remaining").innerText = remainingLetters;
         }
