@@ -4,11 +4,11 @@ This is my first full attempt at a JavaScript project. \
 What seemed like a fairly challenging task took nearly every bit of free time I had between the day it was assigned--and the night before it was due. Who knew a hangman game could be so complex?
 
 # A Few Notes About This Assignment
-Going into this bootcamp, JavaScript was a completely new concept to me. With that in mind, I'm sharing a few tweaks I had to make to my code to adapt and overcome (and return to later once I have a better grasp overall)\
+Going into this bootcamp, JavaScript was a completely new concept to me. With that in mind, I'm sharing a few tweaks I had to make to my code to adapt and overcome (and return to later once I have a better grasp overall).\
 \
 **Press any key to get started.** I changed this to "Enter" because typing a letter not matching the word automatically decremented the remaining letters.\
 \
-**Wins.** Each time the game resets, everything refreshes and a win counter is not displayed (currently).\
+**Wins.** Each time the game resets, everything refreshes and a win counter is not displayed (currently).
 # Additional Notes
 **Choices.** Choices are limited to letters so that a number or other key doesn't count against the player.\
 \
