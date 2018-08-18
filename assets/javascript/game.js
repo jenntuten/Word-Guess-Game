@@ -17,8 +17,16 @@ function swap(blanks, i, userKey) {
     }
     return blanks.substr(0, i) + userKey + blanks.substr(i + 1);
 }
-
-
+function playAgain(){
+team = teams[Math.floor(Math.random() * teams.length)];
+blanks = []; //show letters
+remainingLetters = 10;
+wrongAnswers = [];
+for (let i = 0; i < team.length; i++) {
+  blanks = blanks + "-";//tried to use underscores with a space separating them, but underscores would remain at the end in that case. Used dashes to show separation between the characters.
+};
+//document.querySelector(".final").innerText = ""; <-- this overrode any other messages displayed to this section.
+}
 document.addEventListener('keyup', function(event){
     
         let userKey = event.key;
@@ -71,13 +79,21 @@ document.addEventListener('keyup', function(event){
             }
         if (blanks.includes(team)) {
             //alert("Slam dunk! The team is " + team[0].toUpperCase() + team.substring(1) + ".");
+            
+            wins++;
+            document.querySelector(".wins").innerText = wins;
             document.querySelector(".final").innerText = "Slam dunk! The team is " + team[0].toUpperCase() + team.substring(1) + ".";
-            //wins++;
+            playAgain();
         }
         if (remainingLetters < 1) {
             document.querySelector(".final").innerText = "Oh no! The answer is " + team[0].toUpperCase() + team.substring(1) + ". Better luck next time!";
             //alert("Oh no! The answer is " + team[0].toUpperCase() + team.substring(1) + ". Better luck next time!");
+            losses++;
+            document.querySelector(".losses").innerText = losses;
+            playAgain();
         }
+
+
 })
 
 function refreshPage(){
