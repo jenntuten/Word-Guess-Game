@@ -1,4 +1,3 @@
-
 let teams = ["heat", "spurs", "clippers", "pistons", "jazz", "timberwolves", "nuggets", "suns", "sixers", "grizzlies", "knicks", "raptors", "celtics", "warriors", "trailblazers", "bulls", "cavaliers","magic", "lakers", "kings", "pacers", "nets", "rockets", "mavericks", "thunder", "bucks", "pelicans", "hawks", "hornets", "wizards"];
 let team = teams[Math.floor(Math.random() * teams.length)];
 //choices are limited to letters so that a number or other key doesn't count against the player.
@@ -25,7 +24,7 @@ wrongAnswers = [];
 for (let i = 0; i < team.length; i++) {
   blanks = blanks + "-";//tried to use underscores with a space separating them, but underscores would remain at the end in that case. Used dashes to show separation between the characters.
 };
-//document.querySelector(".final").innerText = ""; <-- this overrode any other messages displayed to this section.
+//document.querySelector(".final").innerText = ""; <-- EDIT: Fixed (moved to line 38)... this overrode any other messages displayed to this section.
 }
 document.addEventListener('keyup', function(event){
     
@@ -35,11 +34,14 @@ document.addEventListener('keyup', function(event){
         //console.log(team); <--to show answer for testing
         if (event.keyCode == 13) {
             //console.log("enter",userKey);
+            document.querySelector(".final").innerText = "";
             //added this because typing a letter not matching the word automatically decremented the remaining letters
         }
         document.querySelector(".incorrect").innerText = wrongAnswers.join(", ");
         document.querySelector(".remaining").innerText = remainingLetters;
         document.querySelector(".correct").innerText = blanks;
+        document.querySelector(".wins").innerText = wins;
+        document.querySelector(".losses").innerText = losses;
         if ((team.includes(userKey) === false) && (choices.includes(userKey) === false)){
             console.log("letters only");//tests whether user input was logged
         }
@@ -78,8 +80,7 @@ document.addEventListener('keyup', function(event){
             }
             }
         if (blanks.includes(team)) {
-            //alert("Slam dunk! The team is " + team[0].toUpperCase() + team.substring(1) + ".");
-            
+            //alert("Slam dunk! The team is " + team[0].toUpperCase() + team.substring(1) + "."); I think this would solve the problem with the win/lose message display, but it also interrupts the flow of the game.
             wins++;
             document.querySelector(".wins").innerText = wins;
             document.querySelector(".final").innerText = "Slam dunk! The team is " + team[0].toUpperCase() + team.substring(1) + ".";
