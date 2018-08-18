@@ -12,6 +12,6 @@ Going into this bootcamp, JavaScript was a completely new concept to me. With th
 \
 **Choices.** Choices are limited to letters so that a number or other key doesn't count against the player.\
 \
-**Blank spaces.** I tried to use underscores with a space separating them (so the player can easily see how many letters are in each word), but underscores would get stuck at the end in that case. After quite a bit of experimenting and using undo/redo several times, I found that using dashes would show separation between the characters--and it wouldn't display any dashes out of place.\
-\
-**Overall thoughts.** With plenty of practice, a great deal of support from my instructional team and tutor, I was able to make it past several significant road blocks that no amount of googling could seem to solve. And, using console.log early and often has been instrumental in getting over those final obstacles. 
+**Blank spaces.** I tried to use underscores with a space separating them (so the player can easily see how many letters are in each word), but underscores would get stuck at the end in that case. After quite a bit of experimenting and using undo/redo several times, I found that using dashes would show separation between the characters--and it wouldn't display any dashes out of place.
+# Overall thoughts
+With plenty of practice, a great deal of support from my instructional team and tutor, I was able to make it past several significant road blocks that no amount of googling could seem to solve. And, using console.log early and often has been instrumental in getting over those final obstacles. 
