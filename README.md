@@ -8,7 +8,7 @@ Going into this bootcamp, JavaScript was a completely new concept to me. With th
 \
 **Press any key to get started.** I changed this to "Enter" because typing a letter not matching the word automatically decremented the remaining letters.\
 \
-**Wins.** Each time the game resets, everything refreshes and a win counter is not displayed (currently).
+**Wins/Losses.** Each time the game resets, the win/lose message stays in place until the end of the next round. The only way to clear it is to click the reset button, which will also clear the wins/losses. I tried a document.querySelector in the playAgain function to display "" upon starting a new game, but this seemed to override any previously displayed messages.
 # Additional Notes
 **Choices.** Choices are limited to letters so that a number or other key doesn't count against the player.\
 \
