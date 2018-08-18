@@ -1,0 +1,29 @@
+body {background-image: url("../images/e0e3ebd41157e0bbb6aa48b0c9714d58.jpg");
+    font-family: 'Orbitron', sans-serif;
+    
+    color: #B2B2B2;}
+    div {
+      font-family: 'Orbitron', sans-serif;
+    }
+    .game {
+        float: left;
+        margin-top: 20px;
+        margin-left: 20px;
+    }
+    .final {
+        float: right;
+        margin-top: 20px;
+        margin-right: 20px;
+        max-width: 400px;
+        font-size: 60px;
+        text-align:center;
+    }
+    .reset {
+        height: 50px;
+        width: 100px;
+        background: #832942;
+        text-align: center;
+        line-height: 45px;
+        color: white;
+        border-radius: 4px;
+    }
