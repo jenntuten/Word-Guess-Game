@@ -16,6 +16,7 @@ function swap(blanks, i, userKey) {
     }
     return blanks.substr(0, i) + userKey + blanks.substr(i + 1);
 }
+
 function playAgain(){
 team = teams[Math.floor(Math.random() * teams.length)];
 blanks = []; //show letters
@@ -93,11 +94,9 @@ document.addEventListener('keyup', function(event){
             document.querySelector(".losses").innerText = losses;
             playAgain();
         }
-
-
 })
-
 function refreshPage(){
     window.location.reload();
 } 
+//add spaces and titleCase later on
 
