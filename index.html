@@ -32,38 +32,39 @@
 
 </div>
 <br><br>
-<div class="somethingElse">Letters Already Guessed: <div class="incorrect"></div></div><br>
-<div class="something">Guesses remaining: <div class="remaining"></div></div><br>
-<div class="correctLetters">Guesses:<br></div>
+<div class="lettersAlreadyGuessed">Letters Already Guessed: <div class="incorrect"></div></div><br>
+<div class="guessesRemaining">Guesses remaining: <div class="remaining"></div></div><br>
+<div class="correctLetters">Team: <div class="correct"></div><br></div>
 <br><br>
 <button class="reset"  onClick="refreshPage()">Reset</button>
 <!--<div class="answer"></div> for testing only-->
 <script>
-let teams = ["heat", "spurs", "celtics", "warriors", "trailblazers", "cavaliers","magic", "lakers", "kings", "pacers", "nets", "rockets", "mavericks", "thunder", "bucks", "pelicans", "hawks", "hornets", "wizards"];
+let teams = ["heat", "spurs", "jazz", "nuggets", "suns", "sixers", "grizzlies", "knicks", "raptors", "celtics", "warriors", "trailblazers", "cavaliers","magic", "lakers", "kings", "pacers", "nets", "rockets", "mavericks", "thunder", "bucks", "pelicans", "hawks", "hornets", "wizards"];
 let team = teams[Math.floor(Math.random() * teams.length)];
 //choices are limited to letters so that a number or other key doesn't count against the player.
 let choices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-let blanks = "_ "; //show letters
+let blanks = []; //show letters
 let remainingLetters = 10; //each game will start with 10 guesses
 let wrongAnswers = []; //show letters
 let wins = 0;
 let losses = 0; 
 for (let i = 0; i < team.length; i++) {
-  blanks = blanks + "_ ";
+  blanks = blanks + "-";
 };
-function swap(str, i, userKey) {
-    if(i > str.length-1) {
-      return str;
-      console.log("str",str);
+function swap(blanks, i, userKey) {
+    if(i > blanks.length-1) {
+      return blanks;
+      console.log("str",blanks);
     }
-    return str.substr(0, i) + userKey + str.substr(i + 1);
+    return blanks.substr(0, i) + userKey + blanks.substr(i + 1);
 }
-
+document.querySelector(".remaining").innerText = remainingLetters;
+document.querySelector(".correct").innerText = blanks;
 document.addEventListener('keyup', function(event){
 
         let userKey = event.key;
         let correct = false;
-        
+        console.log(team);
         if ((team.includes(userKey) === false) && (choices.includes(userKey) === false)){
             console.log("letters only");//tests whether user input was logged
         }
@@ -78,10 +79,7 @@ document.addEventListener('keyup', function(event){
         }
         if (team.includes(userKey) === true){
             console.log("correct");//tests whether user input was logged
-            //let str = blanks;
-            //let swap = str.replace(blanks, userKey);//trying to replace the blanks, but it only shows the correct letter in the console log 
-            //console.log("swap", swap);
-
+            
             //create variable to store index #; what is index # of correctly guessed letter
             let indexOfCorrectLetter = team.indexOf(userKey);
             console.log("indexofcorrectletter", indexOfCorrectLetter);
@@ -101,7 +99,7 @@ document.addEventListener('keyup', function(event){
             for (let i = 0; i < team.length; i++) {
                 if (userKey == team[i]) {
                 blanks = swap(blanks, i, userKey);
-                document.querySelector(".correctLetters").innerText = blanks;
+                document.querySelector(".correct").innerText = blanks;
                 correct = true;
                 }       
             }
@@ -114,14 +112,11 @@ document.addEventListener('keyup', function(event){
             alert("Oh no! The answer is " + team[0].toUpperCase() + team.substring(1) + ". Better luck next time!");
         }
 })
-let scoreboard =
-  "Team: " + blanks +
-  "<br><br>Answer: " + team; 
 
 function refreshPage(){
     window.location.reload();
 } 
-document.querySelector('.score').innerHTML = scoreboard;
+
 //match letters to blanks
 //add toLowerCase
 </script> 
