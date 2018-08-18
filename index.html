@@ -1,31 +1,40 @@
 <!DOCTYPE html>
 <html lang="en-us">
-  <head>
+
+<head>
     <meta charset="UTF-8">
     <title>Hangman</title>
-   <link rel = "stylesheet" href= "assets/css/style.css">
-   <script type = "text/javascript" src = "assets/javascript/game.js"></script>
-  </head>
-  <body>
-     
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script type="text/javascript" src="assets/javascript/game.js"></script>
+</head>
 
-     <div class="game"> <h1>Hangman!</h1>
-<p class="instructions">
-There are 30 teams in the NBA. Choose which one I'm thinking of.</p>
-<p>Press <strong>Enter</strong> to begin.</p>
-<h5><em>(Note: Please make sure your caps lock is off.)</em></h5>
-<p>Team Name:</p>
-<div class="correct"></div>
-<p>Incorrectly guessed:</p><div class="incorrect">
-</div>
-<p>Guesses remaining:</p>
-<div class="remaining"></div>
-<br><br>
-<button class="reset"  onClick="refreshPage()">Reset</button>
-</div>
-<div class="final"></div>
-<!--<div class="answer"></div> for testing only-->
+<body>
+
+
+    <div class="game">
+        <h1>Hangman!</h1>
+        <p class="instructions">
+            There are 30 teams in the NBA. Choose which one I'm thinking of.</p>
+        <p>Press
+            <strong>Enter</strong> to begin.</p>
+        <h5>
+            <em>(Note: Please make sure your caps lock is off.)</em>
+        </h5>
+        <p>Team Name:</p>
+        <div class="correct"></div>
+        <p>Letters Already Guessed: </p>
+        <div class="incorrect">
+        </div>
+        <p>Number of Guesses Remaining: </p>
+        <div class="remaining"></div>
+        <br>
+        <br>
+        <button class="reset" onClick="refreshPage()">Reset</button>
+    </div>
+    <div class="final"></div>
+    <!--<div class="answer"></div> for testing only-->
 
 
 </body>
+
 </html>

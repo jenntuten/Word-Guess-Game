@@ -24,10 +24,10 @@ document.addEventListener('keyup', function(event){
         let userKey = event.key;
         let correct = false;
         
-        console.log(team);
+        //console.log(team); <--to show answer for testing
         if (event.keyCode == 13) {
             //console.log("enter",userKey);
-            //added this because typing a letter not matching the word automatically decremented the remaining
+            //added this because typing a letter not matching the word automatically decremented the remaining letters
         }
         document.querySelector(".incorrect").innerText = wrongAnswers.join(", ");
         document.querySelector(".remaining").innerText = remainingLetters;
@@ -39,30 +39,27 @@ document.addEventListener('keyup', function(event){
             remainingLetters--; 
             console.log("wrong");//tests whether user input was logged
             console.log(wrongAnswers.push(userKey));
-            console.log(remainingLetters);
-            console.log(wrongAnswers);
+            //console.log(remainingLetters);
+            //console.log(wrongAnswers);
             document.querySelector(".incorrect").innerText = wrongAnswers.join(", ");
             document.querySelector(".remaining").innerText = remainingLetters;
         }
         if (team.includes(userKey) === true){
             console.log("correct");//tests whether user input was logged
             
-            //create variable to store index #; what is index # of correctly guessed letter
+            //create variable to store index #; determines index # of correctly guessed letter
             let indexOfCorrectLetter = team.indexOf(userKey);
-            console.log("indexofcorrectletter", indexOfCorrectLetter);
+            //console.log("indexofcorrectletter", indexOfCorrectLetter);
             
             for ( let j = 0; j < team.length; j++ ) {
                 if (team[j] === blanks) {             
                 }
                 if (j === indexOfCorrectLetter) {
                     j = userKey;
-                    console.log("blanks", blanks);
-                    //document.querySelector(".correctLetters").innerText = blanks;
-                   //will print blanks, then the actual value
-                    console.log("userkey?", j);
+                    //console.log("blanks", blanks);
+                    //console.log("userkey", j);
                 }
-            //hold onto correct letters as the user guesses them
-            };
+            }
             for (let i = 0; i < team.length; i++) {
                 if (userKey == team[i]) {
                 blanks = swap(blanks, i, userKey);
@@ -74,6 +71,7 @@ document.addEventListener('keyup', function(event){
         if (blanks.includes(team)) {
             //alert("Slam dunk! The team is " + team[0].toUpperCase() + team.substring(1) + ".");
             document.querySelector(".final").innerText = "Slam dunk! The team is " + team[0].toUpperCase() + team.substring(1) + ".";
+            //wins++;
         }
         if (remainingLetters < 1) {
             document.querySelector(".final").innerText = "Oh no! The answer is " + team[0].toUpperCase() + team.substring(1) + ". Better luck next time!";
@@ -85,5 +83,3 @@ function refreshPage(){
     window.location.reload();
 } 
 
-//match letters to blanks
-//add toLowerCase
